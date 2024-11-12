@@ -10,6 +10,8 @@ from werkzeug.middleware.proxy_fix import ProxyFix
 from config import Config as Config
 from helpers.discord import DiscordEvents
 
+os.makedirs(Config.CACHE_DIR, exist_ok=True)
+
 discord_events = DiscordEvents(discord_token=Config.BOT_TOKEN)
 
 app = Flask(__name__)
