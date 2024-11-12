@@ -37,4 +37,4 @@ def _get_guild_events():
         }))
     return jsonify(events), 200
 
-app.run(debug=Config.DEBUG)
+if __name__ == '__main__': app.run(debug=Config.DEBUG)
