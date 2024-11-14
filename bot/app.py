@@ -65,7 +65,7 @@ async def on_scheduled_event_update(before,after):
             start=after.start_time,
             end=after.end_time
         )
-        await send_notification(f'Event `{calendar_event.summary}` updated on Google Calendar.')
+        await send_notification(f'Event `{calendar_event.get('summary')}` updated on Google Calendar.')
     except Exception as error:
         await send_notification(f'Error when updating event: `{error}`.')
 
