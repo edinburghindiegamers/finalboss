@@ -18,12 +18,12 @@ app = Flask(__name__)
 app.config.from_object(Config())
 app.wsgi_app = ProxyFix(app.wsgi_app, x_proto= 1, x_host= 1)
 cors = CORS(app=app, resources={
-    '/get_guild_events/': {
+    '/api/get_guild_events/': {
         'origins': Config.ORIGINS
     }
 })
 
-@app.route('/get_guild_events/')
+@app.route('/api/get_guild_events/')
 def _get_guild_events():
     now = datetime.now()
     if os.path.isfile(Config.DISCORD_CACHE):
@@ -38,5 +38,9 @@ def _get_guild_events():
             'data': events
         }))
     return jsonify(events), 200
+
+@app.route('/api/receive/')
+def _receive():
+    pass
 
 if __name__ == '__main__': app.run(debug=Config.DEBUG)
