@@ -12,7 +12,7 @@ class Config(object):
     SERVER_NAME = os.getenv('SERVER_NAME')
     GUILD_ID = os.getenv('GUILD_ID')
     BOT_TOKEN = os.getenv('BOT_TOKEN')
-    ORIGINS = ['https://edinburghindiegamers.com', 'https://edinburghindiegamers.github.io']
+    ORIGINS = ['https://edinburghindiegamers.com']
 
 class Development(Config):
     SERVER_NAME = None
